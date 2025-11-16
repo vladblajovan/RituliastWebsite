@@ -115,7 +115,7 @@ export default function Home() {
 
           {/* Feature 1: Location-based */}
           <div className="mb-40">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -123,14 +123,14 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1"
               >
-                <div className="mb-4 text-5xl">📍</div>
-                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                <div className="mb-2 text-3xl md:mb-4 md:text-5xl">📍</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
                   Smart Location Triggers
                 </h3>
-                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
                   Never miss a habit again. Ritualist uses intelligent geofencing to remind you about your habits when you arrive at specific locations. Hit the gym? Get reminded to log your workout. Arrive home? Time for your evening meditation.
                 </p>
-                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Set custom locations for each habit</li>
                   <li>• Smart notifications at the right moment</li>
                   <li>• No annoying time-based reminders</li>
@@ -143,7 +143,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[150px] md:max-w-[280px] md:ml-auto">
+                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/location.png"
                     alt="Location-based habit reminders with geofencing"
@@ -156,7 +156,7 @@ export default function Home() {
 
           {/* Feature 2: Personality Insights */}
           <div className="mb-40">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -164,7 +164,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[150px] md:max-w-[280px]">
+                <div className="w-full max-w-[120px] md:max-w-[280px]">
                   <img
                     src="/screenshots/personality.png"
                     alt="AI personality insights based on your habits"
@@ -179,14 +179,14 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2"
               >
-                <div className="mb-4 text-5xl">🧠</div>
-                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                <div className="mb-2 text-3xl md:mb-4 md:text-5xl">🧠</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
                   Know Yourself Better
                 </h3>
-                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
                   Your habits reveal who you are. Ritualist uses machine learning to analyze your behavior patterns and generate insights about your Big Five personality traits. Discover patterns you never knew existed.
                 </p>
-                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• ML-powered personality analysis</li>
                   <li>• Big Five trait breakdown</li>
                   <li>• Behavioral pattern recognition</li>
@@ -197,7 +197,7 @@ export default function Home() {
 
           {/* Feature 3: Analytics */}
           <div className="mb-40">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -205,14 +205,14 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1"
               >
-                <div className="mb-4 text-5xl">📊</div>
-                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                <div className="mb-2 text-3xl md:mb-4 md:text-5xl">📊</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
                   Beautiful Analytics
                 </h3>
-                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
                   See your progress come to life. Track your streaks, completion rates, and trends with stunning visualizations. The analytics dashboard makes it easy to understand your habits at a glance.
                 </p>
-                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Current and best streak tracking</li>
                   <li>• Completion rate analytics</li>
                   <li>• Weekly and monthly trends</li>
@@ -225,7 +225,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[150px] md:max-w-[280px] md:ml-auto">
+                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/analytics.png"
                     alt="Beautiful analytics dashboard with insights and trends"
@@ -238,7 +238,7 @@ export default function Home() {
 
           {/* Feature 4: Customization */}
           <div className="mb-40">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -246,7 +246,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[150px] md:max-w-[280px]">
+                <div className="w-full max-w-[120px] md:max-w-[280px]">
                   <img
                     src="/screenshots/customization.png"
                     alt="Customize habits with colors, emojis, and categories"
@@ -261,14 +261,14 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2"
               >
-                <div className="mb-4 text-5xl">🎨</div>
-                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                <div className="mb-2 text-3xl md:mb-4 md:text-5xl">🎨</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
                   Make It Yours
                 </h3>
-                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
                   Personalize every detail. Choose from custom colors, emojis, and categories to make your habit tracker uniquely yours. Beautiful design meets powerful functionality.
                 </p>
-                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Custom colors for each habit</li>
                   <li>• Emoji support</li>
                   <li>• Flexible categories</li>
@@ -279,7 +279,7 @@ export default function Home() {
 
           {/* Feature 5: iCloud Sync */}
           <div className="mb-40">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -287,14 +287,14 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1"
               >
-                <div className="mb-4 text-5xl">☁️</div>
-                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                <div className="mb-2 text-3xl md:mb-4 md:text-5xl">☁️</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
                   Seamless Everywhere
                 </h3>
-                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
                   Your habits follow you. iCloud sync keeps your data up-to-date across all your Apple devices. Start on iPhone, continue on iPad, check on Mac.
                 </p>
-                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Automatic iCloud synchronization</li>
                   <li>• Real-time updates across devices</li>
                   <li>• Your data stays private</li>
@@ -307,7 +307,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[150px] md:max-w-[280px] md:ml-auto">
+                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/sync.png"
                     alt="Seamless iCloud sync across all your devices"
@@ -320,7 +320,7 @@ export default function Home() {
 
           {/* Feature 6: Privacy First */}
           <div className="mb-20">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -328,7 +328,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[150px] md:max-w-[280px]">
+                <div className="w-full max-w-[120px] md:max-w-[280px]">
                   <img
                     src="/screenshots/privacy.png"
                     alt="Your privacy protected with on-device processing"
@@ -343,14 +343,14 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2"
               >
-                <div className="mb-4 text-5xl">🔒</div>
-                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                <div className="mb-2 text-3xl md:mb-4 md:text-5xl">🔒</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
                   Your Privacy, Protected
                 </h3>
-                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
                   Everything runs on your device. Your habit data, personality insights, and personal information never leave your control. No tracking, no data collection, no compromises.
                 </p>
-                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• 100% on-device processing</li>
                   <li>• Zero data collection</li>
                   <li>• You own your data completely</li>
