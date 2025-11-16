@@ -89,15 +89,39 @@ Alternatively, you can deploy to:
 - [Railway](https://railway.app/)
 - Any platform that supports Next.js
 
-## Screenshots
+## Features Showcase
 
-The website displays real screenshots from the Ritualist iOS app:
-- Location-based habit reminders with geofencing
-- AI personality insights and analytics
-- Beautiful analytics dashboard
-- Habit customization options
-- iCloud sync across devices
-- Privacy-focused features
+The website includes 6 feature sections with real iOS app screenshots:
+
+### 📍 Smart Location Triggers
+Never miss a habit again with intelligent geofencing that reminds you when you arrive at specific locations.
+
+![Location-based reminders](public/screenshots/location.png)
+
+### 🧠 Know Yourself Better
+ML-powered personality analysis that generates insights about your Big Five personality traits based on your habits.
+
+![Personality insights](public/screenshots/personality.png)
+
+### 📊 Beautiful Analytics
+Track your progress with stunning visualizations including streaks, completion rates, and weekly trends.
+
+![Analytics dashboard](public/screenshots/analytics.png)
+
+### 🎨 Make It Yours
+Personalize every detail with custom colors, emojis, and categories for each habit.
+
+![Habit customization](public/screenshots/customization.png)
+
+### ☁️ Seamless Everywhere
+iCloud sync keeps your data up-to-date across all your Apple devices in real-time.
+
+![iCloud sync](public/screenshots/sync.png)
+
+### 🔒 Your Privacy, Protected
+Everything runs on-device with zero data collection. Your habits, your data, your control.
+
+![Privacy features](public/screenshots/privacy.png)
 
 ## Pricing Tiers
 
