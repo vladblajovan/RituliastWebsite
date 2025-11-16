@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ritualist Website
+
+Modern landing page for [Ritualist](https://github.com/vladblajovan/Ritualist) - an iOS habit tracker that knows you.
+
+## Overview
+
+This is the official marketing website for Ritualist, a modern iOS habit tracking app built with SwiftUI. The website showcases the app's key features including location-based reminders, AI personality insights, beautiful analytics, and more.
+
+**Live Demo:** Coming soon
+
+## Features
+
+- 🎨 Modern, clean design with smooth animations
+- 🌓 Full dark/light mode support
+- 📱 Fully responsive layout
+- 🖼️ Real iOS app screenshots
+- 💫 Scroll animations with Framer Motion
+- 🎲 Random taglines with smart rotation
+- 📊 Stats, testimonials, and FAQ sections
+- 💰 Pricing tiers with actual app prices
+- ✉️ Email waitlist integration
+- 🔗 Social media links
+
+## Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:** [Tailwind CSS v3](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Fonts:** Geist Sans & Geist Mono
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/vladblajovan/RituliastWebsite.git
+cd RituliastWebsite
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+RituliastWebsite/
+├── app/
+│   ├── page.tsx          # Main landing page
+│   ├── layout.tsx        # Root layout with metadata
+│   └── globals.css       # Global styles
+├── public/
+│   └── screenshots/      # iOS app screenshots
+├── tailwind.config.ts    # Tailwind configuration
+└── package.json          # Dependencies
+```
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy this Next.js app is to use [Vercel](https://vercel.com):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vladblajovan/RituliastWebsite)
+
+Alternatively, you can deploy to:
+- [Netlify](https://www.netlify.com/)
+- [Railway](https://railway.app/)
+- Any platform that supports Next.js
+
+## Screenshots
+
+The website displays real screenshots from the Ritualist iOS app:
+- Location-based habit reminders with geofencing
+- AI personality insights and analytics
+- Beautiful analytics dashboard
+- Habit customization options
+- iCloud sync across devices
+- Privacy-focused features
+
+## Pricing Tiers
+
+The website accurately reflects the app's pricing:
+- **Free:** Up to 5 habits with basic features
+- **Weekly:** $2.99/week
+- **Monthly:** $9.99/month
+- **Annual:** $49.99/year (Most Popular)
+- **Lifetime:** $100 one-time payment
+
+## Related Projects
+
+- [Ritualist iOS App](https://github.com/vladblajovan/Ritualist) - The main iOS application
+
+## License
+
+This project is part of the Ritualist ecosystem. See the main [Ritualist repository](https://github.com/vladblajovan/Ritualist) for license information.
+
+## Author
+
+**Vlad Blajovan**
+- GitHub: [@vladblajovan](https://github.com/vladblajovan)
+- Twitter: [@vladblajovan](https://twitter.com/vladblajovan)
+
+---
+
+Built with ❤️ using Next.js and Tailwind CSS
