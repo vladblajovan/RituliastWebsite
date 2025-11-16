@@ -125,7 +125,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-sm md:ml-auto">
+                <div className="w-full max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/location.png"
                     alt="Location-based habit reminders with geofencing"
@@ -146,7 +146,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-sm">
+                <div className="w-full max-w-[280px]">
                   <img
                     src="/screenshots/personality.png"
                     alt="AI personality insights based on your habits"
@@ -195,7 +195,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-sm md:ml-auto">
+                <div className="w-full max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/analytics.png"
                     alt="Beautiful analytics dashboard with insights and trends"
@@ -216,7 +216,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-sm">
+                <div className="w-full max-w-[280px]">
                   <img
                     src="/screenshots/customization.png"
                     alt="Customize habits with colors, emojis, and categories"
@@ -265,7 +265,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-sm md:ml-auto">
+                <div className="w-full max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/sync.png"
                     alt="Seamless iCloud sync across all your devices"
@@ -286,7 +286,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-sm">
+                <div className="w-full max-w-[280px]">
                   <img
                     src="/screenshots/privacy.png"
                     alt="Your privacy protected with on-device processing"
