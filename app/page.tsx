@@ -654,10 +654,6 @@ export default function Home() {
                   <span className="text-green-500">✓</span>
                   <span>Export data (CSV, JSON)</span>
                 </li>
-                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
-                  <span className="text-green-500">✓</span>
-                  <span>Priority support</span>
-                </li>
               </ul>
             </motion.div>
           </div>
