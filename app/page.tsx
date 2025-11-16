@@ -121,7 +121,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="order-2 md:order-1"
+                className="order-2 md:order-1 md:text-right"
               >
                 <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">📍</div>
                 <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
@@ -203,7 +203,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="order-2 md:order-1"
+                className="order-2 md:order-1 md:text-right"
               >
                 <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">📊</div>
                 <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
@@ -285,7 +285,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="order-2 md:order-1"
+                className="order-2 md:order-1 md:text-right"
               >
                 <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">☁️</div>
                 <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
