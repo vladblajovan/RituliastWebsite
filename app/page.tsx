@@ -663,15 +663,9 @@ export default function Home() {
                 <span className="text-4xl font-bold text-black dark:text-white">$2.99</span>
                 <span className="text-zinc-600 dark:text-zinc-400">/week</span>
               </div>
-              <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
                 Try premium features short-term
               </p>
-              <a
-                href="#"
-                className="block w-full rounded-full border-2 border-black px-6 py-3 text-center font-medium text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
-              >
-                Subscribe
-              </a>
             </motion.div>
 
             {/* Monthly */}
@@ -687,15 +681,9 @@ export default function Home() {
                 <span className="text-4xl font-bold text-black dark:text-white">$9.99</span>
                 <span className="text-zinc-600 dark:text-zinc-400">/month</span>
               </div>
-              <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
                 Most flexible option
               </p>
-              <a
-                href="#"
-                className="block w-full rounded-full border-2 border-black px-6 py-3 text-center font-medium text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
-              >
-                Subscribe
-              </a>
             </motion.div>
 
             {/* Annual - Most Popular */}
@@ -715,17 +703,8 @@ export default function Home() {
                 <span className="text-zinc-400 dark:text-zinc-600">/year</span>
               </div>
               <p className="mb-3 text-xs text-zinc-400 dark:text-zinc-600">Save 68% vs weekly</p>
-              <p className="mb-6 text-sm text-zinc-300 dark:text-zinc-700">
+              <p className="text-sm text-zinc-300 dark:text-zinc-700">
                 Best value with free trial
-              </p>
-              <a
-                href="#"
-                className="block w-full rounded-full bg-white px-6 py-3 text-center font-medium text-black transition-all hover:scale-105 dark:bg-black dark:text-white"
-              >
-                Start Free Trial
-              </a>
-              <p className="mt-3 text-center text-xs text-zinc-400 dark:text-zinc-600">
-                1 week free trial
               </p>
             </motion.div>
 
@@ -745,17 +724,8 @@ export default function Home() {
                 <span className="text-4xl font-bold text-black dark:text-white">$100</span>
               </div>
               <p className="mb-3 text-xs text-zinc-600 dark:text-zinc-400">One-time payment</p>
-              <p className="mb-6 text-sm text-zinc-700 dark:text-zinc-300">
+              <p className="text-sm text-zinc-700 dark:text-zinc-300">
                 Pay once, own forever
-              </p>
-              <a
-                href="#"
-                className="block w-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-center font-medium text-white transition-all hover:scale-105"
-              >
-                Buy Lifetime
-              </a>
-              <p className="mt-3 text-center text-xs text-zinc-600 dark:text-zinc-400">
-                Never pay again
               </p>
             </motion.div>
           </div>
