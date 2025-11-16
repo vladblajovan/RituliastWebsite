@@ -1,65 +1,937 @@
-import Image from "next/image";
+'use client';
+
+import { FaGithub, FaApple, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { MdRocketLaunch, MdEmail } from 'react-icons/md';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const taglines = [
+  "Master your habits. Master yourself. 💪",
+  "Your habits shape who you become 🌱",
+  "Build habits that build you 🔨",
+  "Track habits. Unlock potential. 🚀",
+  "Every habit tells a story. What's yours? 📖",
+  "Smart habits for a smarter you 🧠",
+  "Your habits. Your insights. Your transformation. ✨",
+  "Build rituals, not just habits 🕯️",
+  "Where habits meet intelligence 💡"
+];
 
 export default function Home() {
+  const [tagline, setTagline] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Get the last used index from localStorage
+    const lastIndex = parseInt(localStorage.getItem('lastTaglineIndex') || '-1');
+
+    // Generate a new random index that's different from the last one
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * taglines.length);
+    } while (newIndex === lastIndex && taglines.length > 1);
+
+    // Save the new index for next time
+    localStorage.setItem('lastTaglineIndex', newIndex.toString());
+
+    setTagline(taglines[newIndex]);
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-zinc-50 dark:bg-black">
+      {/* Navigation */}
+      <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 bg-zinc-50/80 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#" className="text-xl font-bold text-black dark:text-white">
+            Ritualist
+          </a>
+          <div className="flex items-center gap-6">
+            <a
+              href="#features"
+              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+            >
+              Features
+            </a>
+            <a
+              href="#pricing"
+              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+            >
+              Pricing
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-zinc-50 to-white px-6 py-20 pt-32 dark:from-black dark:to-zinc-950">
+        <div className="max-w-4xl text-center">
+          <h1 className="mb-6 text-7xl font-bold tracking-tight text-black dark:text-white md:text-8xl lg:text-9xl">
+            Ritualist
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mb-4 text-2xl font-medium text-zinc-600 dark:text-zinc-400 md:text-3xl lg:text-4xl">
+            The only habit tracker that <span className="text-black dark:text-white">knows you</span>
           </p>
+          <p className="mb-12 text-lg italic text-zinc-500 dark:text-zinc-500 md:text-xl">
+            {mounted ? tagline : '\u00A0'}
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <a
+              href="#"
+              className="flex items-center justify-center gap-3 rounded-full bg-black px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            >
+              <FaApple className="h-6 w-6" />
+              App Store
+            </a>
+            <a
+              href="#"
+              className="flex items-center justify-center gap-3 rounded-full border-2 border-black px-8 py-4 text-lg font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+            >
+              <MdRocketLaunch className="h-5 w-5" />
+              TestFlight
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="bg-white px-6 py-32 dark:bg-zinc-950">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-24 text-center text-5xl font-bold text-black dark:text-white md:text-6xl">
+            Designed for real life
+          </h2>
+
+          {/* Feature 1: Location-based */}
+          <div className="mb-40">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <div className="order-2 md:order-1">
+                <div className="mb-4 text-5xl">📍</div>
+                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                  Smart Location Triggers
+                </h3>
+                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Never miss a habit again. Ritualist uses intelligent geofencing to remind you about your habits when you arrive at specific locations. Hit the gym? Get reminded to log your workout. Arrive home? Time for your evening meditation.
+                </p>
+                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  <li>• Set custom locations for each habit</li>
+                  <li>• Smart notifications at the right moment</li>
+                  <li>• No annoying time-based reminders</li>
+                </ul>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1 md:order-2"
+              >
+                <div className="w-full max-w-sm md:ml-auto">
+                  <img
+                    src="/screenshots/location.png"
+                    alt="Location-based habit reminders with geofencing"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Feature 2: Personality Insights */}
+          <div className="mb-40">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1"
+              >
+                <div className="w-full max-w-sm">
+                  <img
+                    src="/screenshots/personality.png"
+                    alt="AI personality insights based on your habits"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+              <div className="order-2">
+                <div className="mb-4 text-5xl">🧠</div>
+                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                  Know Yourself Better
+                </h3>
+                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Your habits reveal who you are. Ritualist uses machine learning to analyze your behavior patterns and generate insights about your Big Five personality traits. Discover patterns you never knew existed.
+                </p>
+                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  <li>• ML-powered personality analysis</li>
+                  <li>• Big Five trait breakdown</li>
+                  <li>• Behavioral pattern recognition</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 3: Analytics */}
+          <div className="mb-40">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <div className="order-2 md:order-1">
+                <div className="mb-4 text-5xl">📊</div>
+                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                  Beautiful Analytics
+                </h3>
+                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  See your progress come to life. Track your streaks, completion rates, and trends with stunning visualizations. The analytics dashboard makes it easy to understand your habits at a glance.
+                </p>
+                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  <li>• Current and best streak tracking</li>
+                  <li>• Completion rate analytics</li>
+                  <li>• Weekly and monthly trends</li>
+                </ul>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1 md:order-2"
+              >
+                <div className="w-full max-w-sm md:ml-auto">
+                  <img
+                    src="/screenshots/analytics.png"
+                    alt="Beautiful analytics dashboard with insights and trends"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Feature 4: Customization */}
+          <div className="mb-40">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1"
+              >
+                <div className="w-full max-w-sm">
+                  <img
+                    src="/screenshots/customization.png"
+                    alt="Customize habits with colors, emojis, and categories"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+              <div className="order-2">
+                <div className="mb-4 text-5xl">🎨</div>
+                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                  Make It Yours
+                </h3>
+                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Personalize every detail. Choose from custom colors, emojis, and categories to make your habit tracker uniquely yours. Beautiful design meets powerful functionality.
+                </p>
+                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  <li>• Custom colors for each habit</li>
+                  <li>• Emoji support</li>
+                  <li>• Flexible categories</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 5: iCloud Sync */}
+          <div className="mb-40">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <div className="order-2 md:order-1">
+                <div className="mb-4 text-5xl">☁️</div>
+                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                  Seamless Everywhere
+                </h3>
+                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Your habits follow you. iCloud sync keeps your data up-to-date across all your Apple devices. Start on iPhone, continue on iPad, check on Mac.
+                </p>
+                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  <li>• Automatic iCloud synchronization</li>
+                  <li>• Real-time updates across devices</li>
+                  <li>• Your data stays private</li>
+                </ul>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1 md:order-2"
+              >
+                <div className="w-full max-w-sm md:ml-auto">
+                  <img
+                    src="/screenshots/sync.png"
+                    alt="Seamless iCloud sync across all your devices"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Feature 6: Privacy First */}
+          <div className="mb-20">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1"
+              >
+                <div className="w-full max-w-sm">
+                  <img
+                    src="/screenshots/privacy.png"
+                    alt="Your privacy protected with on-device processing"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+              <div className="order-2">
+                <div className="mb-4 text-5xl">🔒</div>
+                <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
+                  Your Privacy, Protected
+                </h3>
+                <p className="text-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Everything runs on your device. Your habit data, personality insights, and personal information never leave your control. No tracking, no data collection, no compromises.
+                </p>
+                <ul className="mt-6 space-y-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  <li>• 100% on-device processing</li>
+                  <li>• Zero data collection</li>
+                  <li>• You own your data completely</li>
+                  <li>• No third-party tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Stats Section */}
+      <section id="stats" className="border-y border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-16 text-center text-4xl font-bold text-black dark:text-white">
+            Trusted by thousands
+          </h2>
+          <div className="grid gap-12 md:grid-cols-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center"
+            >
+              <div className="mb-2 text-5xl font-bold text-black dark:text-white">5K+</div>
+              <div className="text-lg text-zinc-600 dark:text-zinc-400">Active Users</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center"
+            >
+              <div className="mb-2 text-5xl font-bold text-black dark:text-white">4.8★</div>
+              <div className="text-lg text-zinc-600 dark:text-zinc-400">Average Rating</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-center"
+            >
+              <div className="mb-2 text-5xl font-bold text-black dark:text-white">250K+</div>
+              <div className="text-lg text-zinc-600 dark:text-zinc-400">Habits Tracked</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center"
+            >
+              <div className="mb-2 text-5xl font-bold text-black dark:text-white">82%</div>
+              <div className="text-lg text-zinc-600 dark:text-zinc-400">Success Rate</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-zinc-50 px-6 py-32 dark:bg-black">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center text-4xl font-bold text-black dark:text-white md:text-5xl"
+          >
+            Loved by users worldwide
+          </motion.h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-4 flex items-center gap-1 text-yellow-500">
+                {'★'.repeat(5)}
+              </div>
+              <p className="mb-4 text-lg text-zinc-700 dark:text-zinc-300">
+                "Finally, a habit tracker that actually understands me. The personality insights are mind-blowing!"
+              </p>
+              <div className="text-sm font-medium text-zinc-900 dark:text-white">Sarah M.</div>
+              <div className="text-sm text-zinc-600 dark:text-zinc-400">Product Designer</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-4 flex items-center gap-1 text-yellow-500">
+                {'★'.repeat(5)}
+              </div>
+              <p className="mb-4 text-lg text-zinc-700 dark:text-zinc-300">
+                "The location-based reminders changed everything. I never forget my gym routine anymore."
+              </p>
+              <div className="text-sm font-medium text-zinc-900 dark:text-white">Mike T.</div>
+              <div className="text-sm text-zinc-600 dark:text-zinc-400">Fitness Enthusiast</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-4 flex items-center gap-1 text-yellow-500">
+                {'★'.repeat(5)}
+              </div>
+              <p className="mb-4 text-lg text-zinc-700 dark:text-zinc-300">
+                "Beautiful design and privacy-focused. Exactly what I needed for tracking my daily rituals."
+              </p>
+              <div className="text-sm font-medium text-zinc-900 dark:text-white">Emma L.</div>
+              <div className="text-sm text-zinc-600 dark:text-zinc-400">Entrepreneur</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="border-y border-zinc-200 bg-white px-6 py-32 dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="mx-auto max-w-4xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center text-4xl font-bold text-black dark:text-white md:text-5xl"
+          >
+            Frequently asked questions
+          </motion.h2>
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                Is Ritualist free to use?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Ritualist offers a free version with core features. Premium features like advanced analytics and unlimited habits are available through a subscription.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                Which devices are supported?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Ritualist is available for iPhone, iPad, and Mac. Your data syncs seamlessly across all devices via iCloud.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                How does the personality analysis work?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Our on-device ML model analyzes your habit patterns to generate insights about your Big Five personality traits. All processing happens locally on your device for complete privacy.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                Is my data private?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Absolutely. Everything runs on your device and your data is stored in your personal iCloud account. We never collect, track, or have access to your information.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                Can I export my data?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Yes! You can export all your habit data, analytics, and insights at any time in standard formats like CSV and JSON.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="bg-zinc-50 px-6 py-32 dark:bg-black">
+        <div className="mx-auto max-w-6xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-6 text-center text-4xl font-bold text-black dark:text-white md:text-5xl"
+          >
+            Simple, transparent pricing
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mb-16 text-center text-xl text-zinc-600 dark:text-zinc-400"
+          >
+            Start free, upgrade to unlock premium features
+          </motion.p>
+
+          {/* Free vs Premium Comparison */}
+          <div className="mb-16 grid gap-8 md:grid-cols-2">
+            {/* Free Tier */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="rounded-3xl border-2 border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <h3 className="mb-2 text-2xl font-bold text-black dark:text-white">Free</h3>
+              <div className="mb-6">
+                <span className="text-5xl font-bold text-black dark:text-white">$0</span>
+              </div>
+              <p className="mb-6 text-zinc-600 dark:text-zinc-400">
+                Perfect for getting started with habit tracking
+              </p>
+              <ul className="mb-8 space-y-3">
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>Up to 5 habits</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>Basic analytics</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>Streak tracking</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>iCloud sync</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-400 dark:text-zinc-600">
+                  <span>✗</span>
+                  <span>Location-based reminders</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-400 dark:text-zinc-600">
+                  <span>✗</span>
+                  <span>AI personality insights</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-400 dark:text-zinc-600">
+                  <span>✗</span>
+                  <span>Advanced analytics</span>
+                </li>
+              </ul>
+              <a
+                href="#"
+                className="block w-full rounded-full border-2 border-black px-8 py-4 text-center text-lg font-medium text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+              >
+                Download Free
+              </a>
+            </motion.div>
+
+            {/* Premium Features Overview */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="rounded-3xl border-2 border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <h3 className="mb-2 text-2xl font-bold text-black dark:text-white">Premium</h3>
+              <div className="mb-6">
+                <span className="text-3xl font-bold text-black dark:text-white">Flexible pricing options</span>
+              </div>
+              <p className="mb-6 text-zinc-600 dark:text-zinc-400">
+                All premium plans include the same features
+              </p>
+              <ul className="mb-8 space-y-3">
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span><strong>Unlimited habits</strong></span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span><strong>Location-based reminders</strong></span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span><strong>AI personality insights</strong></span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span><strong>Advanced analytics</strong></span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>Custom categories & colors</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>Export data (CSV, JSON)</span>
+                </li>
+                <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                  <span className="text-green-500">✓</span>
+                  <span>Priority support</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Premium Pricing Options */}
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-8 text-center text-3xl font-bold text-black dark:text-white"
+          >
+            Choose your plan
+          </motion.h3>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {/* Weekly */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="rounded-2xl border-2 border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Weekly</h4>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-black dark:text-white">$2.99</span>
+                <span className="text-zinc-600 dark:text-zinc-400">/week</span>
+              </div>
+              <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
+                Try premium features short-term
+              </p>
+              <a
+                href="#"
+                className="block w-full rounded-full border-2 border-black px-6 py-3 text-center font-medium text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+              >
+                Subscribe
+              </a>
+            </motion.div>
+
+            {/* Monthly */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="rounded-2xl border-2 border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Monthly</h4>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-black dark:text-white">$9.99</span>
+                <span className="text-zinc-600 dark:text-zinc-400">/month</span>
+              </div>
+              <p className="mb-6 text-sm text-zinc-600 dark:text-zinc-400">
+                Most flexible option
+              </p>
+              <a
+                href="#"
+                className="block w-full rounded-full border-2 border-black px-6 py-3 text-center font-medium text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+              >
+                Subscribe
+              </a>
+            </motion.div>
+
+            {/* Annual - Most Popular */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="relative rounded-2xl border-2 border-black bg-black p-6 dark:border-white dark:bg-white"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 text-xs font-medium text-white">
+                Most Popular
+              </div>
+              <h4 className="mb-3 text-lg font-bold text-white dark:text-black">Annual</h4>
+              <div className="mb-1">
+                <span className="text-4xl font-bold text-white dark:text-black">$49.99</span>
+                <span className="text-zinc-400 dark:text-zinc-600">/year</span>
+              </div>
+              <p className="mb-3 text-xs text-zinc-400 dark:text-zinc-600">Save 68% vs weekly</p>
+              <p className="mb-6 text-sm text-zinc-300 dark:text-zinc-700">
+                Best value with free trial
+              </p>
+              <a
+                href="#"
+                className="block w-full rounded-full bg-white px-6 py-3 text-center font-medium text-black transition-all hover:scale-105 dark:bg-black dark:text-white"
+              >
+                Start Free Trial
+              </a>
+              <p className="mt-3 text-center text-xs text-zinc-400 dark:text-zinc-600">
+                1 week free trial
+              </p>
+            </motion.div>
+
+            {/* Lifetime - Best Value */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="relative rounded-2xl border-2 border-purple-500 bg-gradient-to-br from-purple-50 to-pink-50 p-6 dark:border-purple-400 dark:from-purple-950/50 dark:to-pink-950/50"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 text-xs font-medium text-white">
+                Best Value
+              </div>
+              <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Lifetime</h4>
+              <div className="mb-1">
+                <span className="text-4xl font-bold text-black dark:text-white">$100</span>
+              </div>
+              <p className="mb-3 text-xs text-zinc-600 dark:text-zinc-400">One-time payment</p>
+              <p className="mb-6 text-sm text-zinc-700 dark:text-zinc-300">
+                Pay once, own forever
+              </p>
+              <a
+                href="#"
+                className="block w-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-center font-medium text-white transition-all hover:scale-105"
+              >
+                Buy Lifetime
+              </a>
+              <p className="mt-3 text-center text-xs text-zinc-600 dark:text-zinc-400">
+                Never pay again
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Email Waitlist Section */}
+      <section className="bg-white px-6 py-32 dark:bg-zinc-900">
+        <div className="mx-auto max-w-2xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <MdEmail className="mx-auto mb-6 h-16 w-16 text-black dark:text-white" />
+            <h2 className="mb-6 text-4xl font-bold text-black dark:text-white md:text-5xl">
+              Get early access
+            </h2>
+            <p className="mb-8 text-xl text-zinc-600 dark:text-zinc-400">
+              Join the waitlist to be notified when Ritualist launches and get exclusive early access to premium features.
+            </p>
+            <form className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="rounded-full border-2 border-zinc-300 bg-white px-6 py-4 text-lg focus:border-black focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-white"
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-black px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              >
+                Join Waitlist
+              </button>
+            </form>
+            <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-500">
+              No spam. Unsubscribe anytime.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-zinc-50 px-6 py-32 dark:bg-black">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="mb-6 text-5xl font-bold text-black dark:text-white md:text-6xl">
+            Ready to build better habits?
+          </h2>
+          <p className="mb-12 text-xl text-zinc-600 dark:text-zinc-400">
+            Download Ritualist for iOS or explore the source code on GitHub.
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <a
+              href="#"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-black px-12 py-5 text-xl font-medium text-white transition-all hover:scale-105 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            >
+              <FaApple className="h-7 w-7" />
+              Download on App Store
+            </a>
+            <a
+              href="https://github.com/vladblajovan/Ritualist"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 rounded-full border-2 border-zinc-300 px-12 py-5 text-xl font-medium text-zinc-700 transition-all hover:scale-105 hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:bg-zinc-900"
+            >
+              <FaGithub className="h-6 w-6" />
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-zinc-200 bg-white px-6 py-16 dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 md:grid-cols-3">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">Ritualist</h3>
+              <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
+                A modern iOS habit tracker built with SwiftUI and Clean Architecture.
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/vladblajovan/Ritualist"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  <FaGithub className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  <FaTwitter className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  <FaInstagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  <FaTiktok className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">Product</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#features" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#stats" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                    Stats
+                  </a>
+                </li>
+                <li>
+                  <a href="#pricing" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                    Pricing
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">Resources</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="https://github.com/vladblajovan/Ritualist"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/vladblajovan/Ritualist/issues"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    Report Issues
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/vladblajovan/Ritualist/blob/main/LICENSE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    License
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 border-t border-zinc-200 pt-8 text-center text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+            © 2025 Ritualist. Built with ❤️ by Vlad Blajovan
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
