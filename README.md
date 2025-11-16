@@ -96,32 +96,32 @@ The website includes 6 feature sections with real iOS app screenshots:
 ### 📍 Smart Location Triggers
 Never miss a habit again with intelligent geofencing that reminds you when you arrive at specific locations.
 
-![Location-based reminders](public/screenshots/location.png)
+<img src="public/screenshots/location.png" width="300" alt="Location-based reminders">
 
 ### 🧠 Know Yourself Better
 ML-powered personality analysis that generates insights about your Big Five personality traits based on your habits.
 
-![Personality insights](public/screenshots/personality.png)
+<img src="public/screenshots/personality.png" width="300" alt="Personality insights">
 
 ### 📊 Beautiful Analytics
 Track your progress with stunning visualizations including streaks, completion rates, and weekly trends.
 
-![Analytics dashboard](public/screenshots/analytics.png)
+<img src="public/screenshots/analytics.png" width="300" alt="Analytics dashboard">
 
 ### 🎨 Make It Yours
 Personalize every detail with custom colors, emojis, and categories for each habit.
 
-![Habit customization](public/screenshots/customization.png)
+<img src="public/screenshots/customization.png" width="300" alt="Habit customization">
 
 ### ☁️ Seamless Everywhere
 iCloud sync keeps your data up-to-date across all your Apple devices in real-time.
 
-![iCloud sync](public/screenshots/sync.png)
+<img src="public/screenshots/sync.png" width="300" alt="iCloud sync">
 
 ### 🔒 Your Privacy, Protected
 Everything runs on-device with zero data collection. Your habits, your data, your control.
 
-![Privacy features](public/screenshots/privacy.png)
+<img src="public/screenshots/privacy.png" width="300" alt="Privacy features">
 
 ## Pricing Tiers
 
