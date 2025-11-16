@@ -1,7 +1,7 @@
 'use client';
 
 import { FaGithub, FaApple, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
-import { MdRocketLaunch, MdEmail } from 'react-icons/md';
+import { MdRocketLaunch } from 'react-icons/md';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -52,6 +52,18 @@ export default function Home() {
               className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
             >
               Features
+            </a>
+            <a
+              href="#testimonials"
+              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+            >
+              Testimonials
+            </a>
+            <a
+              href="#faq"
+              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+            >
+              FAQ
             </a>
             <a
               href="#pricing"
@@ -131,7 +143,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[280px] md:ml-auto">
+                <div className="w-full max-w-[150px] md:max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/location.png"
                     alt="Location-based habit reminders with geofencing"
@@ -152,7 +164,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[280px]">
+                <div className="w-full max-w-[150px] md:max-w-[280px]">
                   <img
                     src="/screenshots/personality.png"
                     alt="AI personality insights based on your habits"
@@ -213,7 +225,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[280px] md:ml-auto">
+                <div className="w-full max-w-[150px] md:max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/analytics.png"
                     alt="Beautiful analytics dashboard with insights and trends"
@@ -234,7 +246,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[280px]">
+                <div className="w-full max-w-[150px] md:max-w-[280px]">
                   <img
                     src="/screenshots/customization.png"
                     alt="Customize habits with colors, emojis, and categories"
@@ -295,7 +307,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[280px] md:ml-auto">
+                <div className="w-full max-w-[150px] md:max-w-[280px] md:ml-auto">
                   <img
                     src="/screenshots/sync.png"
                     alt="Seamless iCloud sync across all your devices"
@@ -316,7 +328,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[280px]">
+                <div className="w-full max-w-[150px] md:max-w-[280px]">
                   <img
                     src="/screenshots/privacy.png"
                     alt="Your privacy protected with on-device processing"
@@ -350,13 +362,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section id="stats" className="border-y border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
+      {/* Stats & Testimonials Section */}
+      <section id="testimonials" className="bg-zinc-50 px-6 py-32 dark:bg-black">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-16 text-center text-4xl font-bold text-black dark:text-white">
-            Trusted by thousands
-          </h2>
-          <div className="grid gap-12 md:grid-cols-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center text-4xl font-bold text-black dark:text-white md:text-5xl"
+          >
+            Trusted & loved by users worldwide
+          </motion.h2>
+
+          {/* Stats */}
+          <div className="mb-20 grid gap-12 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -377,41 +396,9 @@ export default function Home() {
               <div className="mb-2 text-5xl font-bold text-black dark:text-white">4.8★</div>
               <div className="text-lg text-zinc-600 dark:text-zinc-400">Average Rating</div>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="mb-2 text-5xl font-bold text-black dark:text-white">250K+</div>
-              <div className="text-lg text-zinc-600 dark:text-zinc-400">Habits Tracked</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="mb-2 text-5xl font-bold text-black dark:text-white">82%</div>
-              <div className="text-lg text-zinc-600 dark:text-zinc-400">Success Rate</div>
-            </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials Section */}
-      <section className="bg-zinc-50 px-6 py-32 dark:bg-black">
-        <div className="mx-auto max-w-6xl">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center text-4xl font-bold text-black dark:text-white md:text-5xl"
-          >
-            Loved by users worldwide
-          </motion.h2>
+          {/* Testimonials */}
           <div className="grid gap-8 md:grid-cols-3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -468,7 +455,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="border-y border-zinc-200 bg-white px-6 py-32 dark:border-zinc-800 dark:bg-zinc-900">
+      <section id="faq" className="border-y border-zinc-200 bg-white px-6 py-32 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-4xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -765,41 +752,6 @@ export default function Home() {
               </p>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Email Waitlist Section */}
-      <section className="bg-white px-6 py-32 dark:bg-zinc-900">
-        <div className="mx-auto max-w-2xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <MdEmail className="mx-auto mb-6 h-16 w-16 text-black dark:text-white" />
-            <h2 className="mb-6 text-4xl font-bold text-black dark:text-white md:text-5xl">
-              Get early access
-            </h2>
-            <p className="mb-8 text-xl text-zinc-600 dark:text-zinc-400">
-              Join the waitlist to be notified when Ritualist launches and get exclusive early access to premium features.
-            </p>
-            <form className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="rounded-full border-2 border-zinc-300 bg-white px-6 py-4 text-lg focus:border-black focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-white"
-              />
-              <button
-                type="submit"
-                className="rounded-full bg-black px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-              >
-                Join Waitlist
-              </button>
-            </form>
-            <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-500">
-              No spam. Unsubscribe anytime.
-            </p>
-          </motion.div>
         </div>
       </section>
 
