@@ -104,7 +104,13 @@ export default function Home() {
           {/* Feature 1: Location-based */}
           <div className="mb-40">
             <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
-              <div className="order-2 md:order-1">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2 md:order-1"
+              >
                 <div className="mb-4 text-5xl">📍</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
                   Smart Location Triggers
@@ -117,7 +123,7 @@ export default function Home() {
                   <li>• Smart notifications at the right moment</li>
                   <li>• No annoying time-based reminders</li>
                 </ul>
-              </div>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -154,7 +160,13 @@ export default function Home() {
                   />
                 </div>
               </motion.div>
-              <div className="order-2">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2"
+              >
                 <div className="mb-4 text-5xl">🧠</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
                   Know Yourself Better
@@ -167,14 +179,20 @@ export default function Home() {
                   <li>• Big Five trait breakdown</li>
                   <li>• Behavioral pattern recognition</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Feature 3: Analytics */}
           <div className="mb-40">
             <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
-              <div className="order-2 md:order-1">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2 md:order-1"
+              >
                 <div className="mb-4 text-5xl">📊</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
                   Beautiful Analytics
@@ -187,7 +205,7 @@ export default function Home() {
                   <li>• Completion rate analytics</li>
                   <li>• Weekly and monthly trends</li>
                 </ul>
-              </div>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -224,7 +242,13 @@ export default function Home() {
                   />
                 </div>
               </motion.div>
-              <div className="order-2">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2"
+              >
                 <div className="mb-4 text-5xl">🎨</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
                   Make It Yours
@@ -237,14 +261,20 @@ export default function Home() {
                   <li>• Emoji support</li>
                   <li>• Flexible categories</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Feature 5: iCloud Sync */}
           <div className="mb-40">
             <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
-              <div className="order-2 md:order-1">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2 md:order-1"
+              >
                 <div className="mb-4 text-5xl">☁️</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
                   Seamless Everywhere
@@ -257,7 +287,7 @@ export default function Home() {
                   <li>• Real-time updates across devices</li>
                   <li>• Your data stays private</li>
                 </ul>
-              </div>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -294,7 +324,13 @@ export default function Home() {
                   />
                 </div>
               </motion.div>
-              <div className="order-2">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2"
+              >
                 <div className="mb-4 text-5xl">🔒</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
                   Your Privacy, Protected
@@ -308,7 +344,7 @@ export default function Home() {
                   <li>• You own your data completely</li>
                   <li>• No third-party tracking</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
