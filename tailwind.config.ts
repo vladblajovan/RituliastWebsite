@@ -6,7 +6,7 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'media',
+  darkMode: 'media', // Uses system preference
   theme: {
     extend: {},
   },
