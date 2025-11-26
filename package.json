@@ -16,6 +16,7 @@
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@next/third-parties": "^16.0.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

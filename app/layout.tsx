@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +13,58 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://ritualist.app"; // TODO: Replace with your actual domain
+
 export const metadata: Metadata = {
   title: "Ritualist - Build Better Habits",
   description: "A modern iOS habit tracker with location-based triggers, personality insights, and beautiful analytics.",
+  metadataBase: new URL(siteUrl),
+  keywords: ["habit tracker", "iOS app", "productivity", "personality insights", "privacy-first", "location-based reminders", "iCloud sync", "machine learning"],
+  authors: [{ name: "Vlad Blajovan" }],
+  creator: "Vlad Blajovan",
+  publisher: "Ritualist",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    title: "Ritualist - Privacy-First Habit Tracker for iOS",
+    description: "Build better habits with AI-powered personality insights, location-based reminders, and beautiful analytics. Privacy-first, on-device processing, iCloud sync.",
+    siteName: "Ritualist",
+    images: [
+      {
+        url: "/og-image.png", // TODO: Create this image (1200x630px)
+        width: 1200,
+        height: 630,
+        alt: "Ritualist - Build Better Habits",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ritualist - Privacy-First Habit Tracker for iOS",
+    description: "Build better habits with AI-powered personality insights, location-based reminders, and beautiful analytics.",
+    images: ["/twitter-card.png"], // TODO: Create this image (1200x600px)
+    creator: "@ritualistapp", // TODO: Replace with your Twitter handle
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  verification: {
+    // TODO: Add verification codes when you set up:
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -45,6 +95,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Google Analytics - Replace G-XXXXXXXXXX with your actual GA4 Measurement ID */}
+        {/* Get your ID from: https://analytics.google.com/analytics/web/ */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'} />
       </body>
     </html>
   );

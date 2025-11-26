@@ -172,6 +172,12 @@ export default function Home() {
               >
                 Pricing
               </a>
+              <a
+                href="#contact"
+                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              >
+                Contact
+              </a>
             </div>
           </div>
         </nav>
@@ -201,9 +207,10 @@ export default function Home() {
           <a
             href="#"
             aria-disabled="true"
+            aria-label="App Store download - Coming soon"
             className="flex w-full items-center justify-center gap-3 rounded-full bg-zinc-300 px-6 py-3 text-base font-medium text-zinc-600 opacity-70 cursor-not-allowed sm:w-auto sm:px-7 sm:text-lg dark:bg-zinc-700 dark:text-zinc-300"
           >
-            <FaApple className="h-6 w-6" />
+            <FaApple className="h-6 w-6" aria-hidden="true" />
             App Store
           </a>
           {/* TestFlight */}
@@ -211,9 +218,10 @@ export default function Home() {
             href="https://testflight.apple.com/join/RVMZXfse"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Join Ritualist beta on TestFlight (opens in new tab)"
             className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-black px-6 py-3 text-base font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white sm:w-auto sm:px-7 sm:text-lg dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
           >
-            <MdRocketLaunch className="h-5 w-5" />
+            <MdRocketLaunch className="h-5 w-5" aria-hidden="true" />
             Join Beta on TestFlight
           </a>
         </div>
@@ -242,7 +250,7 @@ export default function Home() {
 </section>
 
       {/* Comparison Section */}
-      <section className="border-t border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
+      <section id="difference" className="border-t border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-5xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -1084,7 +1092,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-zinc-50 px-6 py-32 dark:bg-black">
+      <section id="contact" className="bg-zinc-50 px-6 py-32 dark:bg-black">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 text-5xl font-bold text-black dark:text-white md:text-6xl">
             Ready to build better habits?
@@ -1097,16 +1105,22 @@ export default function Home() {
             onSubmit={handleWaitlistSubmit}
             className="mx-auto mb-6 flex max-w-xl flex-col gap-3 sm:flex-row"
           >
+            <label htmlFor="waitlist-email" className="sr-only">
+              Email address for App Store launch updates
+            </label>
             <input
+              id="waitlist-email"
               type="email"
               required
               value={waitlistEmail}
               onChange={(e) => setWaitlistEmail(e.target.value)}
               placeholder="Enter your email to get App Store launch updates"
+              aria-label="Email address for App Store launch updates"
               className="flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-white dark:focus:ring-white"
             />
             <button
               type="submit"
+              aria-label="Join waitlist for App Store launch"
               className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105 dark:bg-white dark:text-black"
             >
               Join waitlist
